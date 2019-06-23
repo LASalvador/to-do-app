@@ -2,7 +2,7 @@ const express = require('express');
 const todoController = require('./controllers/todoController');
 // building express object
 const app = express();
-
+var port = 8081
 //set up the template engine
 app.set('view engine', 'ejs');
 // path to static file
@@ -12,6 +12,6 @@ app.use(express.static('./public'));
 todoController(app);
 
 // listen to port
-app.listen(8081);
+app.listen(port);
 
-console.log('Server listening on port 8081');
+console.log('Server listening on port: ' + port);
