@@ -2,7 +2,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 // connect to databse
-mongoose.connect('', {
+mongoose.connect('mongodb+srv://root:123@cluster0-rseib.mongodb.net/test?retryWrites=true&w=majority', {
 	useNewUrlParser: true,
 })
 // Create a schema 
@@ -31,7 +31,8 @@ app.get('/todo', function(req,res){
 
 app.post('/todo', urlencondedParser ,function(req,res){
 	// saving a new todo
-	var newTodo = Todo({item: req.body}).save(function(err, data){
+	// console.log();
+	var newTodo = Todo({item: req.body.item}).save(function(err, data){
 		if(err) throw err;
 		res.json(data).status(200);
 	});
